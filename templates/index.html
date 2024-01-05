@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link href="{{ url_for('static', filename='output.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='contratame_web_icon.png') }}" type="image/x-icon">
+    <style>
+        .work-sans {
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .custom-btn-color {
+            background-color: #c8c8c8; /* Custom button color */
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50 flex flex-col justify-center items-center">
+    <div class="w-full max-w-xs">
+        <img src="{{ url_for('static', filename='contratame_logo.png') }}" alt="Contratame Logo">
+        <form id="contactForm" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" enctype="multipart/form-data">
+            <div class="mb-4">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="first_name" name="first_name" placeholder="First Name" required>
+            </div>
+            <div class="mb-4">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+            </div>
+
+            <div class="mb-4">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="tel" name="phone" placeholder="Phone">
+            </div>
+            <div class="mb-4">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="email" name="email" placeholder="Email">
+            </div>
+            <div class="mb-4">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="url" name="weburl" placeholder="Website Link">
+            </div>
+            <div class="mb-4">
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="company" name="company" placeholder="Company Name">
+            </div>
+            <div class="mb-4">
+                <textarea class="shadow appearance-none border rounded w-full h-56 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="notes" name="notes" placeholder="Service Description" maxlength="999"></textarea>
+            </div>
+            <div class="flex items-center justify-center">
+                <button class="custom-btn-color hover:bg-gray-800 text-white py-2 px-4 rounded focus:outline-none work-sans focus:shadow-outline" type="submit">
+                    Generate QR Code
+                </button>
+            </div>
+        </form>
+        <footer class="w-full text-center py-3 absolute bottom-0 bg-gray-50">
+            <span class="text-gray-400 text-xs">
+                Ignacio G. Gómez | 2023 | CS50 Final Project | Obra LLC
+            </span>
+        </footer>
+    </div>
+    <div id="qrcode"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

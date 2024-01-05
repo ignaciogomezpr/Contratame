@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered QR Code</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="{{ url_for('static', filename='output.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='contratame_web_icon.png') }}" type="image/x-icon">
+</head>
+<body class="bg-gray-50 flex flex-col items-center justify-center min-h-screen">
+    <div class="w-full max-w-sm px-4 text-center"> <!-- Adjust the max-width as needed -->
+        <a <a href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='contratame_logo.png') }}" alt="Contratame Logo" class="mx-auto mb-4" style="max-width: 100%; height: auto;"> <!-- Ensures the image is responsive and does not overflow -->
+        </a>
+    </div>
+    <div class="w-full max-w-sm px-4 text-center">
+        <img src="data:image/jpeg;base64,{{ qr_code }}" alt="QR Code" class="mx-auto" style="max-width: 100%; height: auto;"> <!-- Ensures the image is responsive and does not overflow -->
+    </div>
+    <footer class="w-full text-center py-3 absolute bottom-0 bg-gray-50">
+        <span class="text-gray-400 text-xs">
+            Ignacio G. Gómez | 2023 | CS50 Final Project | Obra LLC
+        </span>
+    </footer>
+</body>
+</html>
